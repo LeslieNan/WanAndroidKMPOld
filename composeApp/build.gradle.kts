@@ -48,6 +48,10 @@ kotlin {
             implementation(libs.precompose.viewModel)
             implementation(libs.precompose.koin)
             implementation(libs.precompose.molecule)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.okhttp)
+            implementation(libs.ktor.client.logging)
+//            implementation(libs.ktorfit)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

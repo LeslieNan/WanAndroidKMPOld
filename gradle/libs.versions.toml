@@ -16,6 +16,9 @@ junit = "4.13.2"
 kotlin = "1.9.22"
 kotlinxSerializationJson = "1.6.3"
 precompose = "1.5.11"
+ktor = "2.3.9"
+#ktorfit = "1.10.1"
+ksp = "1.9.22-1.0.17"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -36,6 +39,13 @@ precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }#p
 precompose-viewModel = { module = "moe.tlaster:precompose-viewmodel", version.ref = "precompose" }#MVI化
 precompose-koin = { module = "moe.tlaster:precompose-koin", version.ref = "precompose" }#kotlin注入框架
 precompose-molecule = { module = "moe.tlaster:precompose-molecule", version.ref = "precompose" }#将molecule与生命周期绑定
+# 网络请求
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+# 网络请求直接使用Ktorfit
+#ktorfit-lib = { module = "de.jensklingenberg.ktorfit:ktorfit-lib", version.ref = "ktorfit" }
+#ktorfit-ksp = { module = "de.jensklingenberg.ktorfit:ktorfit-ksp", version.ref = "ktorfit" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -43,3 +53,5 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+#ktorfit = { id = "de.jensklingenberg.ktorfit", version.ref = "ktorfit" }
