@@ -42,6 +42,12 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            implementation(libs.kotlinx.serialization.json)
+            implementation(compose.animation)
+            implementation(libs.precompose)
+            implementation(libs.precompose.viewModel)
+            implementation(libs.precompose.koin)
+            implementation(libs.precompose.molecule)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
