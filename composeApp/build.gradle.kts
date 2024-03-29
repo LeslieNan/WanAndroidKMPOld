@@ -42,7 +42,8 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.kotlinx.serialization.json)
+//            implementation(libs.kotlinx.serialization.json)
+//            implementation(libs.kotlinx.serialization.runtime)
             implementation(compose.animation)
             implementation(libs.precompose)
             implementation(libs.precompose.viewModel)
@@ -51,7 +52,9 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.ktor.client.logging)
-//            implementation(libs.ktorfit)
+            implementation(libs.ktor.client.serialization)
+            implementation(libs.ktor.client.json)
+            implementation(libs.ktor.client.negotiation)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
