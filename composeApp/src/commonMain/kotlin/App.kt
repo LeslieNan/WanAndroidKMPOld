@@ -15,28 +15,35 @@ import androidx.compose.ui.unit.dp
 import app.HomeViewModel
 import moe.tlaster.precompose.PreComposeApp
 import moe.tlaster.precompose.flow.collectAsStateWithLifecycle
+import moe.tlaster.precompose.koin.koinViewModel
 import moe.tlaster.precompose.navigation.NavHost
 import moe.tlaster.precompose.navigation.rememberNavigator
 import moe.tlaster.precompose.viewmodel.viewModel
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import org.koin.core.KoinApplication
+import org.koin.core.context.startKoin
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
 @Preview
 fun App() {
+    startKoin {
+        modules(AppModule.createRepository())
+        modules(AppModule.createViewModel())
+    }
     PreComposeApp {
         val navigator = rememberNavigator()
         MaterialTheme {
             NavHost(navigator, "/home") {
                 scene("/home") {
-                    val homeViewModel = viewModel(HomeViewModel::class) { HomeViewModel() }
+                    val homeViewModel: HomeViewModel = koinViewModel(HomeViewModel::class)
                     val name by homeViewModel.name.collectAsStateWithLifecycle()
                     Column(
                         modifier = Modifier.fillMaxSize(),
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
+
                         Text(
                             text = "Greet Me!",
                             style = MaterialTheme.typography.h6

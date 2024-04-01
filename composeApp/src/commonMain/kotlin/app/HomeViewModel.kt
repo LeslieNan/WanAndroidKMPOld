@@ -3,6 +3,7 @@ package app
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import moe.tlaster.precompose.koin.koinViewModel
 import moe.tlaster.precompose.viewmodel.ViewModel
 import moe.tlaster.precompose.viewmodel.viewModelScope
 
@@ -12,9 +13,9 @@ import moe.tlaster.precompose.viewmodel.viewModelScope
  * Date on 2024/3/28.
  * PS:
  */
-class HomeViewModel : ViewModel() {
-
-    val homeRepository = HomeRepository()
+class HomeViewModel(
+    private val homeRepository: HomeRepository
+) : ViewModel() {
 
     val name = MutableStateFlow("")
     fun setName(value: String) {

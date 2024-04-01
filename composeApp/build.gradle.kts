@@ -43,6 +43,8 @@ kotlin {
             implementation(libs.precompose.viewModel)
             implementation(libs.precompose.koin)
             implementation(libs.precompose.molecule)
+            implementation(libs.koin.core)
+//            implementation(libs.koin.test)
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.logging)
             implementation(libs.ktor.client.serialization)
@@ -55,6 +57,7 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.kotlinx.coroutines.android)
+            implementation(libs.koin.android)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
@@ -67,6 +70,14 @@ kotlin {
         }
     }
 }
+
+//dependencies {
+//    add("kspCommonMainMetadata", project(":test-processor"))
+//    add("kspJvm", project(":test-processor"))
+//    add("kspJvmTest", project(":test-processor")) // Not doing anything because there's no test source set for JVM
+//    // There is no processing for the Linux x64 main source set, because kspLinuxX64 isn't specified
+//    add("kspLinuxX64Test", project(":test-processor"))
+//}
 
 android {
     namespace = "org.leslie.wanandroidkmp"
