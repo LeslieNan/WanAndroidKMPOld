@@ -34,7 +34,6 @@ object NetHttpClient {
     val client = httpClient {
         defaultRequest {
             url(NetConst.baseUrl)
-//            headers.appendIfNameAbsent("", "")
             headers.appendIfNameAbsent(HttpHeaders.ContentType, ContentType.Application.Json.toString())
         }
         install(Logging) {
@@ -51,27 +50,6 @@ object NetHttpClient {
         }
         expectSuccess = true
     }
-
-//    val client = HttpClient {
-//        defaultRequest {
-//            url(NetConst.baseUrl)
-////            headers.appendIfNameAbsent("", "")
-//            headers.appendIfNameAbsent(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-//        }
-//        install(Logging) {
-//            level = LogLevel.ALL
-//        }
-//        install(HttpCookies) {
-//            storage = AcceptAllCookiesStorage()
-//        }
-//        install(ContentNegotiation) {
-//            json(Json {
-//                prettyPrint = true
-//                isLenient = true
-//            })
-//        }
-//        expectSuccess = true
-//    }
 
     suspend inline fun <reified T> get(url: String): T? {
         val body = client.get(url).body<BaseNetModel<T>>()

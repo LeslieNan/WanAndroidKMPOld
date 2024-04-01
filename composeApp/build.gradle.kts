@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -30,7 +31,6 @@ kotlin {
     }
     
     sourceSets {
-        val desktopMain by getting
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -38,8 +38,6 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-//            implementation(libs.kotlinx.serialization.json)
-//            implementation(libs.kotlinx.serialization.runtime)
             implementation(compose.animation)
             implementation(libs.precompose)
             implementation(libs.precompose.viewModel)
@@ -50,21 +48,22 @@ kotlin {
             implementation(libs.ktor.client.serialization)
             implementation(libs.ktor.client.json)
             implementation(libs.ktor.client.negotiation)
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+            implementation(libs.kotlinx.coroutines.core)
         }
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.okhttp)
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+            implementation(libs.kotlinx.coroutines.android)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
         }
+        val desktopMain by getting
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.ktor.client.cio)
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.8.0")
+            implementation(libs.kotlinx.coroutines.core.jvm)
         }
     }
 }
