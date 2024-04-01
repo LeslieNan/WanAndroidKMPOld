@@ -9,25 +9,6 @@ import kotlinx.serialization.Serializable
  * Date on 2023/11/15.
  * PS:
  */
-
-@Serializable
-data class BaseNetModel(
-    var errorCode: Int = 0,
-    var errorMsg: String = "",
-    var data: ListWrapperModel? = null,
-)
-
-@Serializable
-data class ListWrapperModel(
-    val curPage: Int = 0,
-    val datas: List<ArticleModel> = listOf(),
-    val offset: Int = 0,
-    val over: Boolean = false,
-    val pageCount: Int = 0,
-    val size: Int = 0,
-    val total: Int = 0
-)
-
 @Serializable
 data class ArticleModel(
     val adminAdd: Boolean = false,
@@ -66,6 +47,8 @@ data class ArticleModel(
     val visible: Int = 0,
     val zan: Int = 0
 ) {
+
+    @Serializable
     data class Tag(
         val name: String = "",
         val url: String = ""

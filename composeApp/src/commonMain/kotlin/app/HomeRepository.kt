@@ -1,5 +1,6 @@
 package app
 
+import core_network.ListWrapperModel
 import core_network.NetHttpClient
 
 /**
@@ -10,7 +11,7 @@ import core_network.NetHttpClient
  */
 class HomeRepository {
 
-    suspend fun getArticles(): BaseNetModel {
-        return NetHttpClient.get<BaseNetModel>("article/list/1/json")
+    suspend fun getArticles(): ListWrapperModel<ArticleModel>? {
+        return NetHttpClient.get<ListWrapperModel<ArticleModel>>("article/list/1/json")
     }
 }

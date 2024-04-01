@@ -29,6 +29,7 @@ class HomeViewModel : ViewModel() {
         viewModelScope.launch {
             val articles = homeRepository.getArticles()
             println("返回值=$articles")
+            name.emit(articles?.datas?.get(0)?.title ?: "")
         }
     }
 }
