@@ -1,4 +1,4 @@
-package app
+package data_article.model
 
 import kotlinx.serialization.Serializable
 

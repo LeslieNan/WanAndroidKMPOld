@@ -16,9 +16,9 @@ kotlin {
             }
         }
     }
-    
+
     jvm("desktop")
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -29,7 +29,7 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -51,6 +51,9 @@ kotlin {
             implementation(libs.ktor.client.json)
             implementation(libs.ktor.client.negotiation)
             implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.androidx.paging.common.ktx)
+            implementation(libs.androidx.paging.compose)
+            implementation("androidx.paging:paging-runtime:3.0.0")
         }
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
@@ -58,6 +61,8 @@ kotlin {
             implementation(libs.ktor.client.okhttp)
             implementation(libs.kotlinx.coroutines.android)
             implementation(libs.koin.android)
+            implementation(libs.androidx.paging.common.android)
+            implementation(libs.androidx.paging.compose.android)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
@@ -67,6 +72,7 @@ kotlin {
             implementation(compose.desktop.currentOs)
             implementation(libs.ktor.client.cio)
             implementation(libs.kotlinx.coroutines.core.jvm)
+            implementation(libs.androidx.paging.common.jvm)
         }
     }
 }
@@ -111,6 +117,8 @@ android {
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
     }
+}
+dependencies {
 }
 
 compose.desktop {

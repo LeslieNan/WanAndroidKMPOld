@@ -1,5 +1,6 @@
-import app.HomeRepository
-import app.HomeViewModel
+import core_network.NetHttpClient
+import data_article.ArticleRepository
+import feature_article.HomePageViewModel
 import org.koin.dsl.module
 
 /**
@@ -10,13 +11,16 @@ import org.koin.dsl.module
  */
 object AppModule {
 
+    fun createNetClient() = module {
+        single { NetHttpClient }
+    }
+
     fun createRepository() = module {
-        single { HomeRepository() }
+        single { ArticleRepository(get()) }
         // 其他需要注入的依赖项
     }
 
     fun createViewModel() = module {
-        factory { HomeViewModel(get()) }
-
+        factory { HomePageViewModel(get()) }
     }
 }
