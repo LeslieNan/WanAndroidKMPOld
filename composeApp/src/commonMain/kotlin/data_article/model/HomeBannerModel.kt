@@ -1,5 +1,8 @@
 package data_article.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class HomeBannerModel(
     val desc: String = "",
     val id: Int = 0,

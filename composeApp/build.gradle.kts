@@ -51,9 +51,11 @@ kotlin {
             implementation(libs.ktor.client.json)
             implementation(libs.ktor.client.negotiation)
             implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.androidx.paging.common.ktx)
-            implementation(libs.androidx.paging.compose)
-            implementation("androidx.paging:paging-runtime:3.0.0")
+//            implementation("androidx.paging:paging-runtime:3.3.0-alpha02")
+//            implementation("androidx.paging:paging-common:3.3.0-alpha02")
+//            implementation("androidx.paging:paging-common-ktx:3.3.0-alpha02")
+//            implementation("androidx.paging:paging-runtime-ktx:3.3.0-alpha02")
+            implementation("app.cash.paging:paging-compose-common:3.3.0-alpha02-0.4.0")
         }
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
@@ -61,18 +63,26 @@ kotlin {
             implementation(libs.ktor.client.okhttp)
             implementation(libs.kotlinx.coroutines.android)
             implementation(libs.koin.android)
-            implementation(libs.androidx.paging.common.android)
-            implementation(libs.androidx.paging.compose.android)
+//            implementation("androidx.paging:paging-common-android:3.3.0-alpha02")
+//            implementation("androidx.paging:paging-compose-android:3.3.0-alpha02")
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
+//            implementation("androidx.paging:paging-common-iosarm64:3.3.0-alpha02")
+//            implementation("androidx.paging:paging-common-iossimulatorarm64:3.3.0-alpha02")
+//            implementation("androidx.paging:paging-common-iosx64:3.3.0-alpha02")
         }
         val desktopMain by getting
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.ktor.client.cio)
             implementation(libs.kotlinx.coroutines.core.jvm)
-            implementation(libs.androidx.paging.common.jvm)
+//            implementation(libs.androidx.paging.common.jvm)
+            implementation("ch.qos.logback:logback-classic:1.5.3")
+//            implementation("androidx.paging:paging-common-jvm:3.3.0-alpha02")
+//            implementation("androidx.paging:paging-common-linuxx64:3.3.0-alpha02")
+//            implementation("androidx.paging:paging-common-macosarm64:3.3.0-alpha02")
+//            implementation("androidx.paging:paging-common-macosx64:3.3.0-alpha02")
         }
     }
 }
@@ -117,8 +127,6 @@ android {
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
     }
-}
-dependencies {
 }
 
 compose.desktop {

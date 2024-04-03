@@ -2,6 +2,8 @@ package data_article
 
 import core_network.ListWrapperModel
 import core_network.NetHttpClient
+import data_article.model.ArticleModel
+import data_article.model.HomeBannerModel
 
 
 /**
@@ -16,12 +18,12 @@ class ArticleRepository(private val client: NetHttpClient) {
      * 获取文章列表
      */
     suspend fun getArticleList(pageNum: Int) =
-        client.get<ListWrapperModel<ArticleRepository>>("article/list/${pageNum}/json")
+        client.get<ListWrapperModel<ArticleModel>>("article/list/${pageNum}/json")
 
-//    /**
-//     * 获取首页banner数据
-//     */
-//    suspend fun getHomeBanner() = articleApi.requestHomeBanner()
+    /**
+     * 获取首页banner数据
+     */
+    suspend fun getHomeBanner() = client.get<List<HomeBannerModel>>("banner/json")
 
 //    /**
 //     * 获取项目分类列表
