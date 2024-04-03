@@ -38,7 +38,6 @@ fun HomePage(
     modifier: Modifier = Modifier
 ) {
     val homeViewModel = koinViewModel(HomePageViewModel::class)
-    homeViewModel.articleList
 //    val bannerList by homeViewModel.banner.collectAsState()
     val refreshing by remember { mutableStateOf(false) }
     val articleList = homeViewModel.articleList.collectAsLazyPagingItems()

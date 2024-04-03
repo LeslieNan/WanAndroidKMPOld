@@ -55,7 +55,8 @@ kotlin {
 //            implementation("androidx.paging:paging-common:3.3.0-alpha02")
 //            implementation("androidx.paging:paging-common-ktx:3.3.0-alpha02")
 //            implementation("androidx.paging:paging-runtime-ktx:3.3.0-alpha02")
-            implementation("app.cash.paging:paging-compose-common:3.3.0-alpha02-0.4.0")
+            implementation(libs.cash.paging.common)
+            implementation(libs.cash.paging.compose.common)
         }
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)

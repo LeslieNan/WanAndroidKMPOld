@@ -11,7 +11,7 @@ import org.koin.dsl.module
  */
 object AppModule {
 
-    fun createNetClient() = module {
+    fun createSingle() = module {
         single { NetHttpClient }
     }
 

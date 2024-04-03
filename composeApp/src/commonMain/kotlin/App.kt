@@ -32,7 +32,7 @@ import org.koin.core.context.startKoin
 @Preview
 fun App() {
     startKoin {
-        modules(AppModule.createNetClient())
+        modules(AppModule.createSingle())
         modules(AppModule.createRepository())
         modules(AppModule.createViewModel())
     }

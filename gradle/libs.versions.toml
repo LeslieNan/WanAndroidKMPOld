@@ -26,6 +26,7 @@ pagingCommonAndroid = "3.3.0-alpha05"
 pagingCommonJvm = "3.3.0-alpha05"
 pagingCompose = "3.2.1"
 pagingComposeAndroid = "3.3.0-alpha05"
+cashPaging = "3.3.0-alpha02-0.5.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -73,6 +74,9 @@ androidx-paging-common-android = { group = "androidx.paging", name = "paging-com
 androidx-paging-common-jvm = { group = "androidx.paging", name = "paging-common-jvm", version.ref = "pagingCommonJvm" }
 androidx-paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "pagingCompose" }
 androidx-paging-compose-android = { group = "androidx.paging", name = "paging-compose-android", version.ref = "pagingComposeAndroid" }
+# paging3 mutil版本
+cash-paging-common = { group = "app.cash.paging", name = "paging-common", version.ref = "cashPaging" }
+cash-paging-compose-common = { group = "app.cash.paging", name = "paging-compose-common", version.ref = "cashPaging" }
 # 网络请求直接使用Ktorfit
 #ktorfit-lib = { module = "de.jensklingenberg.ktorfit:ktorfit-lib", version.ref = "ktorfit" }
 #ktorfit-ksp = { module = "de.jensklingenberg.ktorfit:ktorfit-ksp", version.ref = "ktorfit" }
