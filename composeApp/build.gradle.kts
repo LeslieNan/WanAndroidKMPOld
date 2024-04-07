@@ -54,6 +54,14 @@ kotlin {
             implementation(libs.cash.paging.common)
             implementation(libs.cash.paging.compose.common)
             implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0-RC")
+            // Koin for Ktor
+            implementation("io.insert-koin:koin-ktor:3.6.0-alpha3")
+            // SLF4J Logger
+            implementation("io.insert-koin:koin-logger-slf4j:3.6.0-alpha3")
+            // coil
+            implementation(libs.coil)
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network)
         }
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)

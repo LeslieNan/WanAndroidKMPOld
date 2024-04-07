@@ -1,5 +1,6 @@
 package feature_article
 
+import core_base.widget.BannerData
 import core_network.ViewModelExt.exceptionHandler
 import core_network.ViewModelExt.simplePager
 import data_article.ArticleRepository
@@ -19,8 +20,8 @@ class HomePageViewModel(
     private val articleRepository: ArticleRepository
 ) : ViewModel() {
 
-//    private val _banner = MutableStateFlow<List<BannerData>>(listOf())
-//    val banner = _banner.asStateFlow()
+    private val _banner = MutableStateFlow<List<BannerData>>(listOf())
+    val banner = _banner.asStateFlow()
 
     init {
         getBannerData()
@@ -35,11 +36,11 @@ class HomePageViewModel(
         viewModelScope.launch(exceptionHandler) {
             val homeBanner = articleRepository.getHomeBanner()
             println("返回数据="+homeBanner)
-//            val bannerList = mutableListOf<BannerData>()
-//            homeBanner.forEach {
-//                bannerList.add(BannerData(it.imagePath, it.url))
-//            }
-//            _banner.emit(bannerList)
+            val bannerList = mutableListOf<BannerData>()
+            homeBanner?.forEach {
+                bannerList.add(BannerData(it.imagePath, it.url))
+            }
+            _banner.emit(bannerList)
         }
     }
 

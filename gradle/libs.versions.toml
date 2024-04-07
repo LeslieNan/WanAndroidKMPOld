@@ -27,6 +27,8 @@ pagingCommonJvm = "3.3.0-alpha05"
 pagingCompose = "3.2.1"
 pagingComposeAndroid = "3.3.0-alpha05"
 cashPaging = "3.3.0-alpha02-0.5.1"
+coil = "3.0.0-alpha01"
+
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -80,6 +82,10 @@ cash-paging-compose-common = { group = "app.cash.paging", name = "paging-compose
 # 网络请求直接使用Ktorfit
 #ktorfit-lib = { module = "de.jensklingenberg.ktorfit:ktorfit-lib", version.ref = "ktorfit" }
 #ktorfit-ksp = { module = "de.jensklingenberg.ktorfit:ktorfit-ksp", version.ref = "ktorfit" }
+# coil
+coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
+coil-network = { module = "io.coil-kt.coil3:coil-network", version.ref = "coil" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

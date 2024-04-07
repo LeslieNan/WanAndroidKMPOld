@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
 import androidx.compose.material.OutlinedButton
@@ -109,6 +110,66 @@ fun <T : Any> PagingListUI(
                             onClickRetry = { data.retry() },
                         )
                     }
+                }
+            }
+        }
+    }
+}
+
+fun <T : Any> LazyListScope.PagingListStateUI(data: LazyPagingItems<T>) {
+    data.loadState.apply {
+        when {
+            refresh is LoadStateNotLoading && data.itemCount < 1 -> {
+                item {
+                    Box(
+                        modifier = Modifier.fillParentMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "No Items",
+                            modifier = Modifier.align(Alignment.Center),
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                }
+            }
+            refresh is LoadStateLoading -> {
+                item {
+                    Box(
+                        modifier = Modifier.fillParentMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator(
+                            color = Color.Green
+                        )
+                    }
+                }
+            }
+            append is LoadStateLoading -> {
+                item {
+                    CircularProgressIndicator(
+                        color = Color.Green,
+                        modifier = Modifier.fillMaxWidth()
+                            .padding(16.dp)
+                            .wrapContentWidth(Alignment.CenterHorizontally)
+                    )
+                }
+            }
+            refresh is LoadStateError -> {
+                item {
+                    ErrorView(
+                        message = "No Internet Connection.",
+                        onClickRetry = { data.retry() },
+                        modifier = Modifier.fillParentMaxSize()
+                    )
+                }
+            }
+            append is LoadStateError -> {
+                item {
+                    ErrorItem(
+                        message = "No Internet Connection",
+                        onClickRetry = { data.retry() },
+                    )
                 }
             }
         }
