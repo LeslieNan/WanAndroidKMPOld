@@ -30,12 +30,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.cash.paging.compose.collectAsLazyPagingItems
-import core_base.util.TimeUtil
 import core_base.widget.Banner
 import core_base.widget.PagingListStateUI
-import core_base.widget.PagingListUI
 import data_article.model.ArticleModel
-import kotlinx.datetime.LocalDateTime
 import moe.tlaster.precompose.koin.koinViewModel
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 
@@ -65,7 +62,7 @@ fun HomePage(
                     Banner(bannerList)
                 }
             }
-            items(result.itemCount) { index ->
+            items(result.itemCount, { result[it]?.id ?: "" }) { index ->
                 val item = result[index]
                 item?.let { HomeArticleCard(it) }
                 Divider(
@@ -84,11 +81,7 @@ fun HomePage(
 @Composable
 fun HomeArticleCard(item: ArticleModel) {
     Spacer(modifier = Modifier.height(10.dp))
-    Column(
-        Modifier
-            .padding(16.dp, 10.dp)
-            .background(Color.White)
-    ) {
+    Column(Modifier.padding(16.dp, 10.dp).background(Color.White)) {
         Row {
             Text(
                 item.author, Modifier
